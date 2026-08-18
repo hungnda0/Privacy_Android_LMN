@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Live Meeting Notes</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 0 16px 60px;
+    }
+
+    .wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+      color: #fff;
+      padding: 48px 40px 40px;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      margin-top: 14px;
+    }
+
+    /* ── Summary card ── */
+    .summary-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-left: 5px solid #0ea5e9;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .summary-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0ea5e9;
+      margin-bottom: 14px;
+    }
+
+    .promise-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+    }
+
+    @media (max-width: 540px) { .promise-list { grid-template-columns: 1fr; } }
+
+    .promise-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+    }
+
+    .icon-ok  { color: #16a34a; font-size: 1.1rem; }
+    .icon-no  { color: #dc2626; font-size: 1.1rem; }
+    .icon-warn{ color: #d97706; font-size: 1.1rem; }
+
+    /* ── Sections ── */
+    section {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #334155;
+      margin: 18px 0 8px;
+    }
+
+    section h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #475569;
+      margin: 12px 0 6px;
+    }
+
+    p { margin-bottom: 10px; font-size: 0.95rem; }
+
+    ul, ol {
+      margin: 8px 0 10px 20px;
+      font-size: 0.93rem;
+    }
+
+    li { margin-bottom: 5px; }
+
+    code {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 0.85rem;
+      color: #be185d;
+    }
+
+    /* ── Data row ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .data-table th {
+      text-align: left;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 8px 12px;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .data-table td {
+      border: 1px solid #e2e8f0;
+      padding: 8px 12px;
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) td { background: #fafafa; }
+
+    /* ── Permission chips ── */
+    .perm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 580px) { .perm-grid { grid-template-columns: 1fr; } }
+
+    .perm-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: #f8fafc;
+    }
+
+    .perm-item .perm-name {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1e40af;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 4px;
+      padding: 2px 7px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .perm-item p {
+      font-size: 0.83rem;
+      color: #475569;
+      margin: 0;
+    }
+
+    /* ── Network activity ── */
+    .network-row {
+      border-left: 3px solid #0ea5e9;
+      padding: 8px 14px;
+      margin: 10px 0;
+      background: #f0f9ff;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+    }
+
+    /* ── Compliance badges ── */
+    .compliance-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .compliance-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .compliance-badge.ok   { background: #dcfce7; color: #15803d; }
+    .compliance-badge.warn { background: #fef9c3; color: #854d0e; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
+
+    footer strong { color: #475569; }
+
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ── Header ── -->
+  <header>
+    <h1>🔒 Privacy Policy</h1>
+    <p><strong>Live Meeting Notes</strong> — Chrome Extension</p>
+    <span class="badge">Last updated: March 19, 2026</span>
+  </header>
+
+  <!-- ── Quick summary ── -->
+  <div class="summary-card">
+    <h2>🎯 Summary</h2>
+    <ul class="promise-list">
+      <li><span class="icon-ok">✅</span> 100% client-side processing</li>
+      <li><span class="icon-ok">✅</span> No personal data collected</li>
+      <li><span class="icon-ok">✅</span> No user behaviour tracking</li>
+      <li><span class="icon-ok">✅</span> No analytics or cookies</li>
+      <li><span class="icon-ok">✅</span> Your data stays on your device</li>
+      <li><span class="icon-ok">✅</span> No sign-up required</li>
+    </ul>
+  </div>
+
+  <!-- ── 1. Data stored ── -->
+  <section>
+    <h2>📊 Data Storage</h2>
+
+    <p>All data is stored <strong>100% locally on your device</strong> — nothing is uploaded to our servers.</p>
+
+    <h3>1. Local Data (on your device)</h3>
+
+    <h4>a) Chrome Storage (auto-backup)</h4>
+    <ul>
+      <li><code>localStorage</code> — Meeting info, notes text, timestamps</li>
+      <li><code>IndexedDB</code> — Audio blob (backup in case the browser crashes)</li>
+    </ul>
+    <p>Purpose: Recover data when the browser closes unexpectedly. Auto-deleted after a successful save.</p>
+
+    <h4>b) File System (File System Access API)</h4>
+    <ul>
+      <li>Audio recordings (.wav / .webm) — meeting audio</li>
+      <li>Meeting metadata (.json) — title, date, attendees</li>
+      <li>Notes (.json) — content + timestamps</li>
+      <li>Export documents (.docx)</li>
+    </ul>
+    <p>Location: The folder <strong>you</strong> select via the "Select Folder" dialog. The extension only writes to that folder.</p>
+
+    <h3>2. Data we DO NOT collect</h3>
+    <ul>
+      <li><span class="icon-no">❌</span> Personal information (name, email, phone)</li>
+      <li><span class="icon-no">❌</span> IP address</li>
+      <li><span class="icon-no">❌</span> Browser fingerprint</li>
+      <li><span class="icon-no">❌</span> Geolocation</li>
+      <li><span class="icon-no">❌</span> Usage analytics</li>
+      <li><span class="icon-no">❌</span> Cookies / tracking pixels</li>
+      <li><span class="icon-no">❌</span> Audio content (never uploaded)</li>
+      <li><span class="icon-no">❌</span> Meeting content (never uploaded)</li>
+    </ul>
+  </section>
+
+  <!-- ── 2. Permissions ── -->
+  <section>
+    <h2>🔐 Chrome Permissions</h2>
+    <p>The extension requests the following permissions, each with a specific, narrow purpose:</p>
+    <div class="perm-grid">
+      <div class="perm-item">
+        <span class="perm-name">storage</span>
+        <p>Store user settings (API keys, preferences) and auto-backup meeting data in Chrome local storage to safely recover from browser crashes.</p>
+      </div>
+      <div class="perm-item">
+        <span class="perm-name">unlimitedStorage</span>
+        <p>Audio recordings from long meetings (2+ hours) exceed Chrome's default 10 MB storage limit. Required for IndexedDB audio blob backup.</p>
+      </div>
+      <div class="perm-item">
+        <span class="perm-name">sidePanel</span>
+        <p>Display the main application UI as a Chrome side panel so you can take notes while attending an online meeting in the same window.</p>
+      </div>
+      <div class="perm-item">
+        <span class="perm-name">contextMenus</span>
+        <p>Add right-click options on the extension icon to open the app as a side panel, full tab, or popup window — your choice.</p>
+      </div>
+      <!-- <div class="perm-item">
+        <span class="perm-name">activeTab</span>
+        <p>Obtain the current tab ID needed to attach the side panel to the active tab when triggered via the context menu.</p>
+      </div> -->
+      <div class="perm-item">
+        <span class="perm-name">identity</span>
+        <p>Read the Chrome profile email to verify email-based licenses, so you can activate your purchased license on any device without re-entering credentials.</p>
+      </div>
+    </div>
+
+    <h3>Host Permissions</h3>
+    <div class="perm-grid">
+      <div class="perm-item">
+        <span class="perm-name">generativelanguage.googleapis.com</span>
+        <p>Send meeting transcripts to Google Gemini API (using <strong>your own API key</strong>) for AI-powered summarization. No data is sent without your explicit action.</p>
+      </div>
+      <div class="perm-item">
+        <span class="perm-name">speech.googleapis.com</span>
+        <p>Send audio to Google Cloud Speech-to-Text API (using <strong>your own API key</strong>) for high-accuracy, multi-language transcription. Only activated when you configure this feature.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. Network activity ── -->
+  <section>
+    <h2>🌐 Network Activity</h2>
+    <p>The extension connects to the internet only in the following scenarios:</p>
+
+    <div class="network-row">
+      <strong>Google Gemini API</strong><br/>
+      Meeting transcripts are sent to <code>generativelanguage.googleapis.com</code> using <em>your own API key</em> only when you click "Summarize with AI". No automatic background uploads.
+    </div>
+    <div class="network-row">
+      <strong>Google Cloud Speech-to-Text API</strong><br/>
+      Audio is sent to <code>speech.googleapis.com</code> using <em>your own API key</em> only when you use the Gemini transcription feature. The free Web Speech API (Chrome built-in) does not use this endpoint.
+    </div>
+    <div class="network-row">
+      <strong>Web Speech API (built-in Chrome)</strong><br/>
+      Audio is streamed in real-time to Google's servers for free, on-device-initiated transcription. This is a browser-native feature, not operated by Live Meeting Notes.
+    </div>
+    <div class="network-row">
+      <strong>LemonSqueezy — Purchase Page</strong><br/>
+      Clicking "Buy Pro" opens <code>hungnd-bn.lemonsqueezy.com</code> in a new browser tab — the extension's payment processor. This is a standard external link; the extension does not make any API calls to LemonSqueezy. LemonSqueezy's own <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">privacy policy</a> applies on that page.
+    </div>
+
+    <h3>No third-party services</h3>
+    <ul>
+      <li><span class="icon-no">❌</span> Google Analytics</li>
+      <li><span class="icon-no">❌</span> Facebook Pixel / Meta SDK</li>
+      <li><span class="icon-no">❌</span> Advertising networks</li>
+      <li><span class="icon-no">❌</span> Cloud storage (Google Drive, Dropbox, etc.)</li>
+      <li><span class="icon-no">❌</span> Backend / proxy API servers operated by this extension</li>
+    </ul>
+  </section>
+
+  <!-- ── 4. Security ── -->
+  <section>
+    <h2>🛡️ Security</h2>
+
+    <h3>Data Encryption</h3>
+    <table class="data-table">
+      <tr>
+        <th>Context</th>
+        <th>Encryption</th>
+      </tr>
+      <tr>
+        <td>Files saved on your device</td>
+        <td>Relies on OS-level encryption (no additional encryption applied by the extension)</td>
+      </tr>
+      <tr>
+        <td>Browser storage</td>
+        <td>Relies on browser security model</td>
+      </tr>
+      <tr>
+        <td>API calls to Google (Gemini, Speech)</td>
+        <td>HTTPS (TLS) — encrypted in transit</td>
+      </tr>
+    </table>
+    <p style="margin-top:10px;"><span class="icon-warn">⚠️</span> <strong>Recommendation:</strong> Do not use this extension to record or transcribe information that is classified, highly confidential, or subject to strict data-handling regulations (e.g., HIPAA).</p>
+
+    <h3>Code Integrity</h3>
+    <ul>
+      <li>All JavaScript is bundled at build time — no remote code execution</li>
+      <li>Content Security Policy: <code>script-src 'self'</code> — blocks any external script injection</li>
+      <li>No <code>eval()</code>, <code>new Function()</code>, or dynamic script loading</li>
+    </ul>
+  </section>
+
+  <!-- ── 5. Your rights ── -->
+  <section>
+    <h2>👤 Your Rights &amp; Control</h2>
+    <ul>
+      <li><span class="icon-ok">✅</span> <strong>Delete data</strong> — Delete local files or clear browser storage at any time</li>
+      <li><span class="icon-ok">✅</span> <strong>Export data</strong> — Files are in standard formats: WAV, JSON, DOCX</li>
+      <li><span class="icon-ok">✅</span> <strong>Revoke permissions</strong> — Revoke microphone and file system access via Chrome settings at any time</li>
+      <li><span class="icon-ok">✅</span> <strong>Uninstall</strong> — Removing the extension clears all associated storage</li>
+      <li><span class="icon-ok">✅</span> <strong>No vendor lock-in</strong> — Standard file formats, no proprietary data model</li>
+    </ul>
+  </section>
+
+  <!-- ── 6. Compliance ── -->
+  <section>
+    <h2>📜 Compliance</h2>
+    <div class="compliance-grid">
+      <div class="compliance-badge ok">✅ GDPR — Compliant</div>
+      <div class="compliance-badge ok">✅ CCPA — Compliant</div>
+      <div class="compliance-badge warn">⚠️ HIPAA — Not certified</div>
+    </div>
+    <p style="margin-top:14px;">No personal data is collected, processed, or sold. No consent banner is required. If you record protected health information, you are responsible for ensuring your local device meets applicable data-security requirements.</p>
+  </section>
+
+  <!-- ── 7. Policy updates ── -->
+  <section>
+    <h2>🔄 Policy Updates</h2>
+    <p>This policy may be updated when new features are added. Changes are announced via the extension's GitHub Releases page. Updates do not affect previously saved data.</p>
+    <h3>History</h3>
+    <ul>
+      <li><strong>March 19, 2026</strong> — v1.1: Updated for Chrome Extension release</li>
+      <li><strong>January 19, 2026</strong> — v1.0: Initial policy</li>
+    </ul>
+  </section>
+
+  <!-- ── 8. Contact ── -->
+  <section>
+    <h2>📞 Contact</h2>
+    <p>Questions about privacy or security?</p>
+    <ul>
+      <li><strong>Telegram:</strong> <a href="https://t.me/hungnd99" target="_blank" rel="noopener">t.me/hungnd99</a></li>
+      <li><strong>Security vulnerabilities:</strong> Please report via GitHub Security Advisories (private disclosure)</li>
+    </ul>
+    <hr/>
+    <p style="font-size:1rem;font-weight:700;text-align:center;margin-top:16px;">Your data stays with you. Always. 🔒</p>
+  </section>
+
+  <footer>
+    <p><strong>Live Meeting Notes</strong> — Chrome Extension</p>
+    <p>Last updated: March 19, 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
